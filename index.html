@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="夜视">
+  <title>夜视</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="32x32">
+  <link rel="preload" as="image" href="assets/room_empty.jpg">
+  <link rel="preload" as="image" href="assets/room_door.jpg">
+  <link rel="preload" as="image" href="assets/room_bed.jpg">
+  <link rel="preload" as="image" href="assets/face_close.jpg">
+  <link rel="stylesheet" href="assets/night.css">
+</head>
+<body>
+  <div id="app" data-phase="entry">
+    <canvas id="view"></canvas>
+    <div id="hud" hidden>
+      <div class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="hud-top">
+        <div class="rec"><b></b><span>录制</span></div>
+        <div class="status">
+          <span id="sig" data-level="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span id="batt" aria-hidden="true"><i id="battfill"></i></span>
+          <em id="bpct">46%</em>
+        </div>
+      </div>
+      <div id="camlabel">镜头 1</div>
+      <div id="meter" hidden><i></i></div>
+      <div id="shush">别出声</div>
+      <div id="nosig">信号丢失</div>
+      <div id="stamp"></div>
+      <div id="endline">它还在</div>
+      <button id="replay" type="button">再看</button>
+    </div>
+    <div id="entry">
+      <p>戴上耳机 · 关灯 · 躲进被子</p>
+      <button id="start" type="button" aria-label="开启夜视"><i></i></button>
+    </div>
+    <div id="hapwrap" aria-hidden="true">
+      <input id="hap" type="checkbox" switch tabindex="-1">
+      <label for="hap">.</label>
+    </div>
+  </div>
+  <video id="selfcam" playsinline muted></video>
+  <script src="assets/night.js"></script>
+</body>
+</html>
